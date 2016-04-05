@@ -1,0 +1,49 @@
+djangO_log
+
+1-install pip3
+
+
+ sudo apt-get install pip3
+
+
+2- install django 1.8.2 using pip
+
+ sudo pip install django
+
+//MYSQL SET UP//
+
+sudo apt-get update
+sudo apt-get install python-pip python-dev mysql-server libmysqlclient-dev
+sudo mysql_install_db
+mysql -u root -p
+CREATE DATABASE carpooldb CHARACTER SET UTF8;
+CREATE USER carpooluser@localhost IDENTIFIED BY 'carpool';
+GRANT ALL PRIVILEGES ON *.* TO carpooluser@localhost;
+FLUSH PRIVILEGES;
+exit;
+
+
+sudo pip install django mysqlclient
+settings.py-->DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'carpooldb',
+        'USER': 'carpooluser',
+        'PASSWORD': 'carpool',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+
+3-$django-admin startproject hackathonfnf
+
+4-cd hackathonfnf
+5-$python manage.py migrate
+6-$python manage.py startapp carpool
+
+python manage.py createsuperuser [fnf,fnf]  #imtiaznaved@gmail.com [naved,naved92]
+
+
+7- made database,not sure if in sqlite or mysql
+8- python manage.py makemigrations migrate syncdb in order
